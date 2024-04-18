@@ -9,7 +9,7 @@ By incorporating data into the prompt, you enable AI models to generate more acc
 For this example, we'll explore a query about Curling in the 2022 Olympics. The dataset used to train the AI model only goes up until September 2021. 
 Therefore, without furnishing additional data in the prompt, the model won't be capable of answering the question.
 
-The technique simply includes a document within the prompt sent to Azure OPenAI that provides information about Curling in the 2022 Olympics.
+The technique simply includes a document within the prompt sent to AWS Bedrock service that provides information about Curling in the 2022 Olympics.
 
 ## Code Location and walkthrough
 
@@ -27,7 +27,7 @@ The default value is
 Which athletes won the gold medal in curling at the 2022 Winter Olympics?
 ```
 
-The response to the request is from the Azure OpenAI Service.
+The response to the request is from the AWS Bedrock Service.
 
 ## Building and running
 
@@ -59,7 +59,7 @@ This will result in a response like this:
 
 ## Stuffing the prompt
 
-Now we will provide relevant information for Azure OpenAI to refer to reference.
+Now we will provide relevant information for AWS Bedrock to refer to reference.
 
 We'll use Wikipedia article on Curling at the 2022 Winter Olympics.[Curling a the 2022 Winter Olympics ](https://en.wikipedia.org/wiki/Curling_at_the_2022_Winter_Olympics).
 
