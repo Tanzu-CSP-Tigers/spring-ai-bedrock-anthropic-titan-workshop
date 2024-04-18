@@ -25,7 +25,7 @@ The `PromptTemplateController` accepts HTTP GET requests at `http://localhost:80
 * `adjective`, whose default value is `funny`
 * `topic`, whose default value is `cows`
 
-The response to the request is from the Azure OpenAI Service.
+The response to the request is from the AWS Bedrock Service.
 
 ## Building and running
 
