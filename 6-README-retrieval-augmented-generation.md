@@ -28,7 +28,7 @@ The steps of processing are
         List<Document> documents = jsonReader.get();
 ```
 
-Create embeddings for the documents.  This calls the Azure OpenAI embedding endpoint.
+Create embeddings for the documents.  This calls the AWS Bedrock embedding endpoint.
 
 ```java
         VectorStore vectorStore = new SimpleVectorStore(embeddingClient);
@@ -56,7 +56,7 @@ The `Prompt` is created from a System message and a User message.  The System me
         ChatResponse chatResponse = chatClient.call(prompt);
 ```
 
-The response to the request is from the Azure OpenAI Service.
+The response to the request is from the AWS Bedrock service.
 
 ## Building and running
 

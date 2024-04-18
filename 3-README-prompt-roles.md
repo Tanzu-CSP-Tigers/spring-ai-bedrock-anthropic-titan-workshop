@@ -10,7 +10,7 @@ The `PromptTemplateController` accepts HTTP GET requests at `http://localhost:80
 * `name`, The name of the AI assistant.  The default value is `Bob`
 * `voice`, The style of voice that the AI assistant will use to reply.  The default value is `pirate`
 
-The response to the request is from the Azure OpenAI Service.
+The response to the request is from the AWS Bedrock Service.
 
 ## Roles
 
