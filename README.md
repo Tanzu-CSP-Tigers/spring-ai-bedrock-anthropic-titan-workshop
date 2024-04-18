@@ -1,9 +1,13 @@
-# Spring AI Workshop for AWS Bedrock Cohere
+# Spring AI Workshop for AWS Bedrock
 
 ## Introduction
-This is a copy of the excellent [spring-a--azure-workshop](https://github.com/Azure-Samples/spring-ai-azure-workshop/tree/main) that has been ported to work with AWS Bedrock.  Unlike vendors like Azure and Google, AWS has chosen to host multiple models rather than throw in entirely on their own model (Titan).  The model I selected for this workshop is 'Cohere' because it has SpringAI support for chat and embeddings.
+This is a copy of the excellent [spring-a--azure-workshop](https://github.com/Azure-Samples/spring-ai-azure-workshop/tree/main) that has been ported to work with AWS Bedrock.  Unlike vendors like Azure and Google, AWS has chosen to host multiple models rather than throw in entirely on their own model (Titan).  The model I selected for this workshop is `Anthropic3` for chat, and AWS's own `Titan` for embeddings.
 
-**NOTE:** I have everything in the library working except RAG.  That is a work in progress and this repo will be updated when that part is sorted out.
+**NOTE:** Many users will have experience doing AI workshops using python tools like *langchain* and *streamlit*.  While that provides a nice GUI for testing, Spring is designed for enterprise applications and is almost always part of a larger application. Because Spring in general is a tool for developers, the entire workshop will be delivered through the command line terminal.  While it is definitely possible to run command by posting commands such as "http://localhost:8080/ai/simple" in a browser, it is not really an optimal experience.  
+
+For best experience, we encourage user to deploy the *.devcontainer*, which has all necessary tools such as `java`, `maven`, `http`, and `curl` installed. Launching a [CodeSpace]("https://github.com/features/codespaces") from GitHub will open the *devcontainer* and bring you into the *VsCode* tool. In this case, we recommend running `./mvnw clean install`before starting the first exercise to download all dependencies and prep the application. Also, it is not necessary to run `./mvn spring-boot:run` for every exercise if the app is still running.  
+
+Of course, users are welcome to download this repo and run it locally using their own tools as well.  We also encourage users to visit [Spring Initializer](https://start.spring.io") to recreate the code on their own.
 
 ## Prerequisites
 
@@ -12,26 +16,26 @@ Before you begin make sure to set the following environment variables.
 ```shell
 export AWS_ACCESS_KEY_ID=<INSERT ID HERE>
 export AWS_SECRET_ACCESS_KEY=<INSERT KEY HERE>
-export AWS_SESSION_TOKEN=<INSERT TOKEN HERE>
+export AWS_SESSION_TOKEN=<INSERT TOKEN HERE>  \\optional for some users
 ```
-NOTE: the docs will tell you to enter these values in the application.properties file.  
-I found I had issues with the utility used in-house to access AWS, so I leave them out of application.properties.   However, you *must* set the region in the application.properties file.
+NOTE: the [Spring AI docs]("https://docs.spring.io/spring-ai/reference/index.html) will tell you to enter these values in the *application.properties* file.  
+I found I had issues with the utility used in-house to access AWS, so I leave them out of *application.properties*.   However, you *must* set the region in the *application.properties* file.
 
-### Create Bedrock AI Deployments
+### Enable Bedrock AI Model Access
 
-The configuration assumes you have already enabled Cohere inside your AWS Bedrock account.  You can enable model access at the model access tab on the bottom-left of teh main page.  e.g. [here](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess)
+The configuration assumes you have already enabled the required models inside your AWS Bedrock account.  You can enable model access at the model access tab on the bottom-left of teh main page.  e.g. [here](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess).   This workshop requires access to `Anthropic` for chat feature and `Titan` only for embeddings.   At the time of this writing `Anthropic` does require a use case justification.
 
 
-NOTE: Spring configuration properties currently use the property-name `model` instead of `deployment-name` so don't get confused.  Spring AI will be renaming the property in the future to avoid confusion.  See [here](https://docs.spring.io/spring-ai/reference/api/clients/azure-openai-chat.html#_deployment_name) for more information.
-
-For the chat, the configuration in `application.properties` should contain the following
+For the workshop, the configuration in `application.properties` should contain the following
 
 ```shell
-spring.ai.bedrock.aws.region=us-east-1
+spring.ai.bedrock.aws.region=<INSERT AWS REGION>
 
-spring.ai.bedrock.cohere.embedding.enabled=true
-spring.ai.bedrock.cohere.chat.enabled=true
-spring.ai.bedrock.cohere.chat.options.temperature=0.8
+spring.ai.bedrock.anthropic3.chat.enabled=true
+
+spring.ai.bedrock.titan.embedding.enabled=true
+spring.ai.bedrock.titan.embedding.model=amazon.titan-embed-text-v1
+spring.ai.bedrock.titan.embedding.input-type=TEXT
 ```
 
 ## Workshop Overview
@@ -52,3 +56,5 @@ Detailed instructions and exercises for each example can be found in their respe
 * 6-README-retrieval-augmented-generation.md
 
 These guides will walk you through the workshop exercises.
+
+`NOTE:` before running the 
