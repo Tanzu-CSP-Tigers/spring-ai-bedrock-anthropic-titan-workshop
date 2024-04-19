@@ -37,7 +37,7 @@ The User message and the System message are combined together to create the `Pro
 Prompt prompt = new Prompt(List.of(userMessage, systemMessage));
 ```
 
-The response to the request is from the Azure OpenAI Service.
+The response to the request is from the Claude AI Service.
 
 
 ## Building and running
