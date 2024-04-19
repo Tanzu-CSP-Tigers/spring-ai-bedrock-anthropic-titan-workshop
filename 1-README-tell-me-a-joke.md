@@ -8,7 +8,7 @@ The `SimpleAiController` accepts HTTP GET requests at `http://localhost:8080/ai/
 
 There is optional `message` parameter whose default value is "Tell me a joke".
 pl
-The response to the request is from the Azure OpenAI Service.
+The response to the request is from the AWS Bedrock Service.
 
 ## Building and running
 

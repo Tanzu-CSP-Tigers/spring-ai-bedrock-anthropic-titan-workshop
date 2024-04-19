@@ -21,14 +21,14 @@ The `format` variable is obtained from the `OutputParser`
 
 ## BeanOutputParser
 
-The `BeanOutputParser` generates an OpenAI JSON compliant schema for a JavaBean and provides instructions to use that schema when replying to a request.
+The `BeanOutputParser` generates an Bedrock JSON compliant schema for a JavaBean and provides instructions to use that schema when replying to a request.
 
 ```java
 var outputParser = new BeanOutputParser<>(ActorsFilms.class);
 String format = outputParser.getFormat();
 ```
 
-The response from the Azure OpenAI Service is then parsed into the class `ActorsFilms`
+The response from the AWS Bedrock Service is then parsed into the class `ActorsFilms`
 
 ```java
 ActorsFilms actorsFilms = outputParser.parse(generation.getOutput().getContent());
