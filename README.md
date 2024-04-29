@@ -1,7 +1,7 @@
 # Spring AI Workshop for AWS Bedrock
 
 ## Introduction
-This is a copy of the excellent [spring-a--azure-workshop](https://github.com/Azure-Samples/spring-ai-azure-workshop/tree/main) that has been ported to work with AWS Bedrock.  Unlike vendors like Azure and Google, AWS has chosen to host multiple models rather than throw in entirely on their own model (Titan).  The model I selected for this workshop is `Anthropic3` for chat, and AWS's own `Titan` for embeddings.
+This workshop has been adapted from the excellent [Spring AI workshop]([https://github.com/Azure-Samples/spring-ai-azure-workshop/tree/main](https://github.com/spring-projects/spring-ai)) for AWS Bedrock.  Unlike alternatives, AWS has chosen to host & provide multiple models, rather than throw in entirely on their own model (Titan).  The models selected for this workshop are `Anthropic's 3` for chat and AWS's proprietary `Titan` for embeddings.
 
 **NOTE:** Many users will have experience doing AI workshops using python tools like *langchain* and *streamlit*.  While that provides a nice GUI for testing, Spring is designed for enterprise applications and is almost always part of a larger application. Because Spring in general is a tool for developers, the entire workshop will be delivered through the command line terminal.  While it is definitely possible to run command by posting commands such as "http://localhost:8080/ai/simple" in a browser, it is not really an optimal experience.  
 
