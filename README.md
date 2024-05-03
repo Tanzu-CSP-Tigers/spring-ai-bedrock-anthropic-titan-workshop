@@ -16,14 +16,13 @@ Before you begin make sure to set the following environment variables.
 ```shell
 export AWS_ACCESS_KEY_ID=<INSERT ID HERE>
 export AWS_SECRET_ACCESS_KEY=<INSERT KEY HERE>
-export AWS_SESSION_TOKEN=<INSERT TOKEN HERE>  \\optional for some users
 ```
-NOTE: the [Spring AI docs]("https://docs.spring.io/spring-ai/reference/index.html) will tell you to enter these values in the *application.properties* file.  
-I found I had issues with the utility used in-house to access AWS, so I leave them out of *application.properties* opting for setting environmental variables in my console.  That said, you *must* set the _region_ in the *application.properties* file.
+NOTE: the [Spring AI docs]("https://docs.spring.io/spring-ai/reference/index.html) will tell you to enter these values in the **/src/main/resources/application.properties** file.  
+I found I had issues with the utility used in-house to access AWS, so I leave them out of *application.properties* opting for setting environmental variables in my console.  That said, you *must* set the `region` in the *application.properties* file.
 
 ### Enable Bedrock AI Model Access
 
-The configuration assumes you have already enabled the required models inside your AWS Bedrock account.  You can enable model access at the model access tab on the bottom-left of teh main page.  e.g. [here](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess).   This workshop requires access to `Anthropic` for chat feature and `Titan` only for embeddings.   At the time of this writing `Anthropic` does require a use case justification.
+The configuration assumes you have already enabled the required models inside your AWS Bedrock account.  You can enable model access at the model access tab on the bottom-left of the main page.  e.g. [here](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess).   This workshop requires access to `Anthropic` for chat feature and `Titan` only for embeddings.   At the time of this writing `Anthropic` does require a use case justification.
 
 
 For the workshop, the configuration in `application.properties` should contain the following
@@ -44,7 +43,7 @@ The workshop consists of six examples, each with a dedicated `README` file.  Not
 
 All six workshop examples are organized into individual Java packages within this project. In each package, you'll find a Spring @RestController class that serves as the entry point for showcasing the discussed functionality.
 
-To interact with the @RestController, you will be using the `http` utility as a user-friendly alternative to `curl`.
+To interact with the **@RestController**, you will be using the `http` utility as a user-friendly alternative to `curl`.
 
 Detailed instructions and exercises for each example can be found in their respective README files:
 
