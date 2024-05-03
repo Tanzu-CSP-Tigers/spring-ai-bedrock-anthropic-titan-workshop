@@ -1,7 +1,7 @@
 # Spring AI Workshop for AWS Bedrock
 
 ## Introduction
-This is a copy of the excellent [spring-a--azure-workshop](https://github.com/Azure-Samples/spring-ai-azure-workshop/tree/main) that has been ported to work with AWS Bedrock.  Unlike vendors like Azure and Google, AWS has chosen to host multiple models rather than throw in entirely on their own model (Titan).  The model I selected for this workshop is `Anthropic3` for chat, and AWS's own `Titan` for embeddings.
+This is an introductory workshop for Spring AI with AWS Bedrock LLMs.  Unlike vendors like Azure and Google, AWS has chosen to host multiple models rather than throw in entirely on their own model (Titan).  The model I selected for this workshop is `Anthropic3` for chat, and AWS's own `Titan` for embeddings.
 
 **NOTE:** Many users will have experience doing AI workshops using python tools like *langchain* and *streamlit*.  While that provides a nice GUI for testing, Spring is designed for enterprise applications and is almost always part of a larger application. Because Spring in general is a tool for developers, the entire workshop will be delivered through the command line terminal.  While it is definitely possible to run command by posting commands such as "http://localhost:8080/ai/simple" in a browser, it is not really an optimal experience.  
 
@@ -19,7 +19,7 @@ export AWS_SECRET_ACCESS_KEY=<INSERT KEY HERE>
 export AWS_SESSION_TOKEN=<INSERT TOKEN HERE>  \\optional for some users
 ```
 NOTE: the [Spring AI docs]("https://docs.spring.io/spring-ai/reference/index.html) will tell you to enter these values in the *application.properties* file.  
-I found I had issues with the utility used in-house to access AWS, so I leave them out of *application.properties*.   However, you *must* set the region in the *application.properties* file.
+I found I had issues with the utility used in-house to access AWS, so I leave them out of *application.properties* opting for setting environmental variables in my console.  That said, you *must* set the _region_ in the *application.properties* file.
 
 ### Enable Bedrock AI Model Access
 
@@ -57,4 +57,5 @@ Detailed instructions and exercises for each example can be found in their respe
 
 These guides will walk you through the workshop exercises.
 
-`NOTE:` before running the 
+`NOTE:` before running the workshop, please visit `0-README-what-is-spring.md` to get some background on the Spring Framework and understand why Development teams love to use Spring AI.
+
