@@ -57,5 +57,5 @@ Detailed instructions and exercises for each example can be found in their respe
 
 These guides will walk you through the workshop exercises.
 
-`NOTE:` before running the workshop, please visit `0-README-what-is-spring.md` to get some background on the Spring Framework and understand why Development teams love to use Spring AI.
+`NOTE:` before running the workshop, please visit [what is Spring](../main/0-README-what-is-spring.md)  to get some background on the Spring Framework and understand why Development teams love to use Spring AI.
 
