@@ -1,4 +1,4 @@
-# Tell me a joke
+# Spring AI and Amazon Bedrock - Tell me a joke
 The code for this example is in the Spring AI package `com.xkcd.ai.helloworld`. In that package there is a Spring REST Controller named `SimpleAiController`. The `SimpleAiController` accepts HTTP GET requests at `http://localhost:8080/ai/simple`
 
 There is optional `message` parameter whose default value is "Tell me a joke". The response to the request is from the AWS Bedrock Service. The `SimpleAiController` accepts HTTP GET requests at `http://localhost:8080/ai/simple`
