@@ -29,7 +29,7 @@ Run the project from your IDE or use the Maven command line
 ```
 ./mvnw spring-boot:run
 ```
-**Note:** No need to open browser or make it public if prompted. The browser version does not have an output and you will receive a "Whitelabel error page"
+**NOTE:** No need to open browser or make it public if prompted. The browser version does not have an output and you will receive a "Whitelabel error page"
 
 ## Access the endpoint
 To get a response for a funny joke about a cow.
