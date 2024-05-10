@@ -44,7 +44,7 @@ To get a response for a funny joke about a cow.
 > curl --get  --data-urlencode 'adjective=funny' --data-urlencode 'topic=cow' http://localhost:8080/ai/prompt
 > ```
 
-** A sample response is **
-> {"generation":"Here's a cow joke for you:\n\nWhy did the cow cross the road?\n\nTo get to the udder side!"}
+** A sample `curl` response is **
+> {"messageType":"ASSISTANT","metadata":{"messageType":"ASSISTANT"},"content":"Here's a funny cow joke for you:\n\nWhy did the cow cross the road?\n\nTo get to the udder side!","media":[]}
 
 
