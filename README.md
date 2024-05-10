@@ -41,9 +41,9 @@ spring.ai.bedrock.anthropic3.chat.enabled=true
 
 ## Workshop Overview
 
-The workshop consists of six examples, each with a dedicated `README` file.  Note that there is a description of how Spring, and the goal is to instruct user on how SpringAI functions.   The code is essentially the same with every AI model.  
+The workshop consists of six examples, each with a dedicated `README` file.  
 
-All six workshop examples are organized into individual Java packages within this project. In each package, you'll find a Spring @RestController class that serves as the entry point for showcasing the discussed functionality.
+All six workshop examples are organized into individual Java packages within this project. The code is essentially the same with every AI model. In each package, you'll find a Spring @RestController class that serves as the entry point for showcasing the discussed functionality.
 
 To interact with the **@RestController**, you will be using the `http` utility as a user-friendly alternative to `curl`.
 
@@ -56,7 +56,7 @@ Detailed instructions and exercises for each example can be found in their respe
 * 5-README-stuff-prompt.md 
 * 6-README-retrieval-augmented-generation.md
 
-These guides will walk you through the workshop exercises.
+Each README guide will walk you through the workshop exercises.
 
 `NOTE:` before running the workshop, please visit [what is Spring](../main/0-README-what-is-spring.md)  to get some background on the Spring Framework and understand why Development teams love to use Spring AI.
 
