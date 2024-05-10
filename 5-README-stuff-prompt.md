@@ -54,15 +54,14 @@ In the `resources\docs\` directory, there's a file named `wikipedia-curling.md` 
 
 To stuff the prompt, send a request with the `stuffit` request parameter set to true.
 
-> using `http`
-> ```shell
-> http GET localhost:8080/ai/stuff stuffit==true
-> ```
+```shell
+http GET localhost:8080/ai/stuff stuffit==true
+```
+or using `curl`
+```shell
+curl --get  --data-urlencode 'stuffit=true' http://localhost:8080/ai/stuff 
+```
 
-> using `curl`
-> ```shell
-> curl --get  --data-urlencode 'stuffit=true' http://localhost:8080/ai/stuff 
-> ```
 
 The response will include information about gold medalists in curling at the 2022 Winter Olympics:
 ```json
