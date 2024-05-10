@@ -34,7 +34,7 @@ Run the project from your IDE or use the Maven command line
 ## Access the endpoint
 To get a response for a funny joke about a cow.
 
-> using 'http'
+> using `http`
 > ```shell
 > http GET localhost:8080/ai/prompt adjective==funny topic==cow
 > ```
