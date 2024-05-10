@@ -117,7 +117,7 @@ Now lets change the default values by changing the actor
 > ```shell
 > http GET localhost:8080/ai/output actor=="Bill Murray"
 > ```
-**:** if this fails, try another actor like "Tom Selleck"
+**NOTE:** if this fails, try another actor like "Tom Selleck"
 
 > using `curl`
 > ```shell
