@@ -1,48 +1,37 @@
-    # Spring AI - Retrieval Augmented Generation
-
-The code for this example is in the package `com.xkcd.ai.rag`.
-
-In that package there is a Spring REST Controller named `RagController`.
-
-The `RagController` accepts HTTP GET requests at `http://localhost:8080/ai/rag` with one optional parameter
+# Spring AI and Amazon Bedrock - Retrieval Augmented Generation
+The code for this example is in the Spring AI package `com.xkcd.ai.rag`. In that package there is a Spring REST Controller named `RagController`. The `RagController` accepts HTTP GET requests at `http://localhost:8080/ai/rag` with one optional parameter
 
 * `message` The user question that can be answered using the data provided to the model.
  
-The defaultValue is `What bike is good for city commuting?`.
+The **defaultValue** is `What bike is good for city commuting?`.
 
 ## Code Walkthrough
-
 The `RagController` delegates to the `RagService`. The `RagService` uses two Spring Resources.
-
-* `classpath:/data/bikes.json` Contains the catalog information about bikes.  This is the set of data that we are bringing to the AI Model
-* `classpath:/prompts/system-qa.st` Contains the system prompt.  Information about bikes that are similar to the use question will be 'stuffed' into the System prompt.
-
+* `classpath:/data/bikes.json` contains the catalog information about bikes.  This is the set of data that we are bringing to the AI model
+* `classpath:/prompts/system-qa.st` contains the system prompt. Information about bikes that are similar to the use question will be 'stuffed' into the System prompt.
 
 The steps of processing are
 
 ### Load the documents
-
 ```java
         JsonReader jsonReader = new JsonReader(bikesResource,
                 "name", "price", "shortDescription", "description");
         List<Document> documents = jsonReader.get();
 ```
 
-Create embeddings for the documents.  This calls the AWS Bedrock embedding endpoint.
+Create embeddings for the documents.  This calls the Amazon Bedrock embedding endpoint.
 
 ```java
         VectorStore vectorStore = new SimpleVectorStore(embeddingClient);
         vectorStore.add(documents);
 ```
 ### Find documents similar to the query
-
 ```java
         List<Document> similarDocuments = vectorStore.similaritySearch(message);
 ```
 
 ### Create a Prompt
-
-The `Prompt` is created from a System message and a User message.  The System message contains the similar documents retrieved from the `VectorStore`.  The User message is the user's input to the `RagController` request parameter `message`
+The `prompt` is created from a system message and a user message.  The system message contains the similar documents retrieved from the `VectorStore`.  The user message is the user's input to the `RagController` request parameter `message`.
 
 ```java
         Message systemMessage = getSystemMessage(similarDocuments);
@@ -51,34 +40,33 @@ The `Prompt` is created from a System message and a User message.  The System me
 ```
 
 ### Get the response
-
 ```java
         ChatResponse chatResponse = chatClient.call(prompt);
 ```
 
-The response to the request is from the AWS Bedrock service.
+The response to the request is from the Amazon Bedrock service.
 
 ## Building and running
-
 Run the project from your IDE or use the Maven command line
 ```
 ./mvnw spring-boot:run
 ```
+**NOTE:** No need to open browser or make it public if prompted. The site does not have an output if opened in a browser and you will receive a "Whitelabel error page"
 
 ## Access the endpoint
-
 To get a response to the default request of "What bike is good for city commuting?"
 
-```shell
-http http://localhost:8080/ai/rag
-```
-or using curl
-```shell
-curl http://localhost:8080/ai/rag
-```
+> using `http`
+> ```shell
+> http http://localhost:8080/ai/rag
+> ```
 
-A sample response is
+> using `curl`
+> ```shell
+> curl http://localhost:8080/ai/rag
+> ```
 
+**A sample response is**
 ```json
 {
   "info": {},
@@ -87,13 +75,11 @@ A sample response is
 ```
 
 Now using the `message` request parameter to ask about a specific bike.
-
 ```shell
 $  http GET localhost:8080/ai/rag message=="Tell me some details about the SwiftRide Hybrid"
 ```
 
-A sample response is
-
+**A sample response is**
 ```json
 {
     "info": {},

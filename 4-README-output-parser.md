@@ -1,10 +1,5 @@
-# Spring AI - Output Parsers
-
-The code for this example is in the package `com.xkcd.ai.output`.
-
-In that package there is a Spring REST Controller named `OutputParserController`.
-
-The `OutputParserController` accepts HTTP GET requests at `http://localhost:8080/ai/output` with one optional parameter
+# Spring AI and Amazon Bedrock - Output Parsers
+The code for this example is in the Spring AI package `com.xkcd.ai.output`. In that package there is a Spring REST Controller named `OutputParserController`. The `OutputParserController` accepts HTTP GET requests at `http://localhost:8080/ai/output` with one optional parameter:
 
 * `actor` The actor's name.  The default value is `Jeff Bridges`
 
@@ -40,21 +35,23 @@ Run the project from your IDE or use the Maven command line
 ```
 ./mvnw spring-boot:run
 ```
+**NOTE:** No need to open browser or make it public if prompted. The browser version does not have an output and you will receive a "Whitelabel error page"
 
 ## Access the endpoint
 
 Let's get a response using the default values.
 
-```shell
-http GET localhost:8080/ai/output
-```
-or using `curl`
-```shell
-curl http://localhost:8080/ai/output
-```
+> using `http`
+> ```shell
+> http GET localhost:8080/ai/output
+> ```
 
-The response is
+> using `curl`
+> ```shell
+> curl http://localhost:8080/ai/output
+> ```
 
+**A sample `http` response is:**
 ```json
 {
     "actor": "Jeff Bridges",
@@ -113,19 +110,21 @@ The response is
     ]
 }
 ```
-Now lets change the default values
-```shell
-http GET localhost:8080/ai/output actor=="Bill Murray"
-```
-NOTE: if this fails, try another actor like "Tom Selleck"
+## Change default values
+Now lets change the default values by changing the actor
 
-or using `curl`
-```shell
-curl --get  --data-urlencode 'actor=Bill Murray' http://localhost:8080/ai/output 
-```
+> using `http` 
+> ```shell
+> http GET localhost:8080/ai/output actor=="Bill Murray"
+> ```
+**NOTE:** if this fails, try another actor like "Tom Selleck"
 
-A sample response is
+> using `curl`
+> ```shell
+> curl --get  --data-urlencode 'actor=Bill Murray' http://localhost:8080/ai/output 
+> ```
 
+**A sample `http` response is**
 ```json
 {
   "actor": "Bill Murray",

@@ -1,12 +1,8 @@
-# Spring AI - Prompt Templating 
+#  Spring AI and Amazon Bedrock - Prompt Templating 
 
-The code for this example is in the package `com.xkcd.ai.prompttemplate`.
+The code for this example is in the Spring AI package `com.xkcd.ai.prompttemplate`. In that package there is a Spring REST Controller named `PromptTemplateController`.
 
-In that package there is a Spring REST Controller named `PromptTemplateController`.
-
-The `PromptTemplateController` shows how to use the StringTemplate Engine and the Spring AI `PromptTemplate` class.
-In the `resources\prompts` directory is the file `joke-prompt`.  
-That file is loaded using the Spring `Resource` abstraction in the controller as shown below
+The `PromptTemplateController` shows how to use the StringTemplate Engine and the Spring AI `PromptTemplate` class. In the `resources\prompts` directory is the file `joke-prompt`. That file is loaded using the Spring `Resource` abstraction in the controller as shown below
 
 
 ```java
@@ -33,25 +29,22 @@ Run the project from your IDE or use the Maven command line
 ```
 ./mvnw spring-boot:run
 ```
+**NOTE:** No need to open browser or make it public if prompted. The browser version does not have an output and you will receive a "Whitelabel error page"
 
 ## Access the endpoint
-
 To get a response for a funny joke about a cow.
 
-```shell
-http GET localhost:8080/ai/prompt adjective==funny topic==cow
-```
-or using `curl`
-```shell
-curl --get  --data-urlencode 'adjective=funny' --data-urlencode 'topic=cow' http://localhost:8080/ai/prompt 
-```
+> using `http`
+> ```shell
+> http GET localhost:8080/ai/prompt adjective==funny topic==cow
+> ```
 
-A sample response is
+> using `curl`
+> ```shell
+> curl --get  --data-urlencode 'adjective=funny' --data-urlencode 'topic=cow' http://localhost:8080/ai/prompt
+> ```
 
-```json
-{
-    "info": {},
-    "text": "Why did the cow go to outer space? \n\nTo see the moooon!"
-}
-```
+**A sample `curl` response is**
+> {"messageType":"ASSISTANT","metadata":{"messageType":"ASSISTANT"},"content":"Here's a funny cow joke for you:\n\nWhy did the cow cross the road?\n\nTo get to the udder side!","media":[]}
+
 
